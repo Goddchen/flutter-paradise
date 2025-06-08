@@ -1,5 +1,3 @@
-// ignore_for_file: unused_local_variable
-
 class Car {
   Car({required this.driveMode});
 
@@ -11,7 +9,11 @@ class Car {
   }
 }
 
-enum DriveMode { automatic, manual }
+enum DriveMode {
+  automatic,
+  flying,
+  manual,
+}
 
 sealed class SealedCar {
   const SealedCar({required this.driveMode});
@@ -58,27 +60,4 @@ switchStatementMissingOneCase(Car car) {
     case DriveMode.manual:
       print('manual driving');
   }
-}
-
-newSwitch(Car car) {
-  switch (car.driveMode) {
-    case DriveMode.automatic:
-      // TODO: Handle this case.
-      throw UnimplementedError();
-    case DriveMode.manual:
-      // TODO: Handle this case.
-      throw UnimplementedError();
-  }
-}
-
-fallingThrough(Car car) {
-  switch (car.driveMode) {
-    case DriveMode.automatic:
-    case DriveMode.manual:
-      print('Handles both');
-  }
-
-  final sameCodeForBoth = switch (car.driveMode) {
-    DriveMode.automatic || DriveMode.manual => true,
-  };
 }
